@@ -1,0 +1,19 @@
+
+
+   <div class="bg">
+       
+            <h1 *ngIf="!winner && !isdraw && !freshpage">Current Player: {{player}} </h1>
+            <button (click)="newGame()" class="btn btn-dark mb-3 ">New Game</button>
+            
+            <h2 *ngIf="winner">Player {{winner}} won the game</h2>
+            
+            <h2 *ngIf="isdraw">Draw !! </h2>
+       
+   </div>
+    
+    <main *ngIf="!winner && !isdraw">
+        <app-square *ngFor="let val of squares; let i =index" 
+                    [value]="val" (click)="makemove(i)">
+    
+        </app-square>
+    </main>
